@@ -1,4 +1,5 @@
 from django.contrib import admin
-from core.models import Ocorrencias
+from core.models import RegistroPaciente, RegistroUsuario
 
-admin.site.register(Ocorrencias)
+admin.site.register(RegistroUsuario)
+admin.site.register(RegistroPaciente)

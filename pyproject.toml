@@ -1,18 +1,16 @@
 [tool.poetry]
-name = "backend-bombeiros"
+name = "bombeirosdjango"
 version = "0.1.0"
 description = ""
-authors = ["gustavorteuber <gugareis135@gmail.com>"]
+authors = ["Brunoo47 <brunoostroskiprogramador@gmail.com>"]
 readme = "README.md"
-packages = [{include = "backend_bombeiros"}]
 
 [tool.poetry.dependencies]
 python = "^3.11"
-django = "^4.2.5"
-django-cors-headers = "^4.2.0"
+django-cors-headers = "^4.3.0"
 djangorestframework = "^3.14.0"
 djangorestframework-simplejwt = "^5.3.0"
-drf-spectacular = "^0.26.4"
+drf-spectacular = "^0.26.5"
 
 
 [build-system]
