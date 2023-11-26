@@ -2,7 +2,7 @@ from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 from rest_framework_simplejwt.views import TokenObtainPairView
 from django.shortcuts import render
 from rest_framework import viewsets
-from core.serializers import RegistroPacienteSerializer, RegistroUsuarioSerializer, OcorrenciaTipo, ProblemasEncontrados, AvaliacaoGlassGOW, AvaliacaoGlassGOW_Kids, Sinais_e_Sintomas, Sinais_Vitais, localizacao_dos_traumas, Queimadura, Vitimia, DecisaoTransporteObjetosRecolhidos, Procedimentos_efetuados, SinaisSintomas, Materiais, AnamneseEmergenciaMedica, AnamneseGestacional, AvaliacaodacinematicaeObsImportantes
+from core.serializers import RegistroPacienteSerializer, RegistroUsuarioSerializer, OcorrenciaTipoSerializer, ProblemasEncontradosSerializer, AvaliacaoGlassGOWSerializer, AvaliacaoGlassGOW_KidsSerializer, Sinais_e_SintomasSerializer, Sinais_VitaisSerializer, localizacao_dos_traumasSerializer, QueimaduraSerializer, VitimiaSerializer, DecisaoTransporteObjetosRecolhidosSerializer, Procedimentos_efetuadosSerializer, SinaisSintomasSerializer, MateriaisSerializer, AnamneseEmergenciaMedicaSerializer, AnamneseGestacionalSerializer, AvaliacaodacinematicaeObsImportantesSerializer
 from core.models import RegistroPaciente, RegistroUsuario, OcorrenciaTipo, ProblemasEncontrados, AvaliacaoGlassGOW, AvaliacaoGlassGOW_Kids, Sinais_e_Sintomas, Sinais_Vitais, localizacao_dos_traumas, Queimadura, Vitimia, DecisaoTransporteObjetosRecolhidos, Procedimentos_efetuados, SinaisSintomas, Materiais, AnamneseEmergenciaMedica, AnamneseGestacional, AvaliacaodacinematicaeObsImportantes
 
 
@@ -18,82 +18,82 @@ class RegistroPacienteViewSet(viewsets.ModelViewSet):
 
 class OcorrenciaTipo(viewsets.ModelViewSet):
     queryset = OcorrenciaTipo.objects.all()
-    serializer_class = OcorrenciaTipo
+    serializer_class = OcorrenciaTipoSerializer
 
 
 class ProblemasEncontrados(viewsets.ModelViewSet):
     queryset = ProblemasEncontrados.objects.all()
-    serializer_class = ProblemasEncontrados
+    serializer_class = ProblemasEncontradosSerializer
 
 
 class AvaliacaoGlassGOW(viewsets.ModelViewSet):
     queryset = AvaliacaoGlassGOW.objects.all()
-    serializer_class = AvaliacaoGlassGOW
+    serializer_class = AvaliacaoGlassGOWSerializer
 
 
 class AvaliacaoGlassGOW_Kids(viewsets.ModelViewSet):
     queryset = AvaliacaoGlassGOW_Kids.objects.all()
-    serializer_class = AvaliacaoGlassGOW_Kids
+    serializer_class = AvaliacaoGlassGOW_KidsSerializer
 
 
 class Sinais_e_Sintomas(viewsets.ModelViewSet):
     queryset = Sinais_e_Sintomas.objects.all()
-    serializer_class = Sinais_e_Sintomas
+    serializer_class = Sinais_e_SintomasSerializer
 
 
 class Sinais_Vitais(viewsets.ModelViewSet):
     queryset = Sinais_Vitais.objects.all()
-    serializer_class = Sinais_Vitais
+    serializer_class = Sinais_VitaisSerializer
 
 
 class localizacao_dos_traumas(viewsets.ModelViewSet):
     queryset = localizacao_dos_traumas.objects.all()
-    serializer_class = localizacao_dos_traumas
+    serializer_class = localizacao_dos_traumasSerializer
 
 
 class Queimadura(viewsets.ModelViewSet):
     queryset = Queimadura.objects.all()
-    serializer_class = Queimadura
+    serializer_class = QueimaduraSerializer
 
 
 class Vitimia(viewsets.ModelViewSet):
     queryset = Vitimia.objects.all()
-    serializer_class = Vitimia
+    serializer_class = VitimiaSerializer
 
 
 class DecisaoTransporteObjetosRecolhidos(viewsets.ModelViewSet):
     queryset = DecisaoTransporteObjetosRecolhidos.objects.all()
-    serializer_class = DecisaoTransporteObjetosRecolhidos
+    serializer_class = DecisaoTransporteObjetosRecolhidosSerializer
 
 
 class Procedimentos_efetuados(viewsets.ModelViewSet):
     queryset = Procedimentos_efetuados.objects.all()
-    serializer_class = Procedimentos_efetuados
+    serializer_class = Procedimentos_efetuadosSerializer
 
 
 class SinaisSintomas(viewsets.ModelViewSet):
     queryset = SinaisSintomas.objects.all()
-    serializer_class = SinaisSintomas
+    serializer_class = SinaisSintomasSerializer
 
 
 class Materiais(viewsets.ModelViewSet):
     queryset = Materiais.objects.all()
-    serializer_class = Materiais
+    serializer_class = MateriaisSerializer
 
 
 class AnamneseEmergenciaMedica(viewsets.ModelViewSet):
     queryset = AnamneseEmergenciaMedica.objects.all()
-    serializer_class = AnamneseEmergenciaMedica
+    serializer_class = AnamneseEmergenciaMedicaSerializer
 
 
 class AnamneseGestacional(viewsets.ModelViewSet):
     queryset = AnamneseGestacional.objects.all()
-    serializer_class = AnamneseGestacional
+    serializer_class = AnamneseGestacionalSerializer
 
 
 class AvaliacaodacinematicaeObsImportantes(viewsets.ModelViewSet):
     queryset = AvaliacaodacinematicaeObsImportantes.objects.all()
-    serializer_class = AvaliacaodacinematicaeObsImportantes
+    serializer_class = AvaliacaodacinematicaeObsImportantesSerializer
 
 
 class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
