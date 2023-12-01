@@ -28,10 +28,10 @@ class RegistroUsuario(models.Model):
 
 
 class OcorrenciaTipo(models.Model):
-    registroId = models.ForeignKey(RegistroPaciente, on_delete=models.CASCADE)
+    registroId = models.ForeignKey(RegistroPaciente, null=True, on_delete=models.CASCADE)
     deslizamento_desmoronamento = models.BooleanField(default=False)
     desabamento = models.BooleanField(default=False)
-    queda_altura = models.CharField(max_length=100)
+    queda_altura = models.BooleanField(default=False)
     queda_moto = models.BooleanField(default=False)
     queda_bicicleta = models.BooleanField(default=False)
     causa_animal = models.BooleanField(default=False)
@@ -47,16 +47,16 @@ class OcorrenciaTipo(models.Model):
     domestico = models.BooleanField(default=False)
     intoxicacao = models.BooleanField(default=False)
     transferencia = models.BooleanField(default=False)
-    outro = models.TextField()
+    outro = models.TextField(null=True)
 
 
 class ProblemasEncontrados(models.Model):
-    registroId = models.ForeignKey(RegistroPaciente, on_delete=models.CASCADE)
+    registroId = models.ForeignKey(RegistroPaciente, null=True, on_delete=models.CASCADE)
     psiquiatrico = models.BooleanField(default=False)
-    respiratorio = models.CharField(max_length=100)
+    respiratorio = models.BooleanField(default=False)
     diabeticos = models.BooleanField(default=False)
     obstetrico = models.BooleanField(default=False)
-    outro = models.TextField()
+    outro = models.TextField(null=True)
 
 
 class AvaliacaoGlassGOW(models.Model):
@@ -298,3 +298,20 @@ class AvaliacaodacinematicaeObsImportantes(models.Model):
     painel_avariado = models.BooleanField(default=False)
     volante_torcido = models.BooleanField(default=False)
     obs = models.TextField()
+
+class registrarocorrencia(models.Model):
+    registroId = models.ForeignKey(RegistroPaciente, null=True, on_delete=models.CASCADE)
+    nome = models.CharField(max_length=100)
+    idade = models.CharField(max_length=100)
+    cpf = models.CharField(max_length=100)
+    telefone = models.CharField(max_length=100)
+    acompanhante = models.BooleanField(default=False)
+    local_da_ocorrencia = models.CharField(max_length=100)
+    m = models.CharField(max_length=100)
+    s1 = models.CharField(max_length=100)
+    s2 = models.CharField(max_length=100)
+    s3 = models.CharField(max_length=100)
+    demandante = models.CharField(max_length=100)
+    equipe = models.CharField(max_length=100)
+    registroOcorrenciaTipo = models.ForeignKey(OcorrenciaTipo, null=True, on_delete=models.CASCADE)
+    registroProblemasEncontrados = models.ForeignKey(ProblemasEncontrados, null=True, on_delete=models.CASCADE)

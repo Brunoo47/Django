@@ -1,5 +1,5 @@
 from django.contrib import admin
-from core.models import RegistroPaciente, RegistroUsuario, AnamneseEmergenciaMedica, AnamneseGestacional, ProblemasEncontrados, AvaliacaoGlassGOW, AvaliacaoGlassGOW_Kids, Sinais_e_Sintomas, Sinais_Vitais, SinaisSintomas, localizacao_dos_traumas, Queimadura, Vitimia, DecisaoTransporteObjetosRecolhidos, Procedimentos_efetuados, Materiais, AvaliacaodacinematicaeObsImportantes
+from core.models import RegistroPaciente, RegistroUsuario, AnamneseEmergenciaMedica, AnamneseGestacional, ProblemasEncontrados, AvaliacaoGlassGOW, AvaliacaoGlassGOW_Kids, Sinais_e_Sintomas, Sinais_Vitais, SinaisSintomas, localizacao_dos_traumas, Queimadura, Vitimia, DecisaoTransporteObjetosRecolhidos, Procedimentos_efetuados, Materiais, AvaliacaodacinematicaeObsImportantes, registrarocorrencia
 
 admin.site.register(RegistroUsuario)
 admin.site.register(RegistroPaciente)
@@ -18,3 +18,7 @@ admin.site.register(SinaisSintomas)
 admin.site.register(Materiais)
 admin.site.register(AnamneseGestacional)
 admin.site.register(AvaliacaodacinematicaeObsImportantes)
+admin.site.register(registrarocorrencia)
+
+
+

@@ -1,4 +1,4 @@
-from core.models import RegistroPaciente, RegistroUsuario, OcorrenciaTipo, ProblemasEncontrados, AvaliacaoGlassGOW, AvaliacaoGlassGOW_Kids, Sinais_e_Sintomas, Sinais_Vitais, localizacao_dos_traumas, Queimadura, Vitimia, DecisaoTransporteObjetosRecolhidos, Procedimentos_efetuados, SinaisSintomas, Materiais, AnamneseEmergenciaMedica, AnamneseGestacional, AvaliacaodacinematicaeObsImportantes
+from core.models import RegistroPaciente, RegistroUsuario, OcorrenciaTipo, ProblemasEncontrados, AvaliacaoGlassGOW, AvaliacaoGlassGOW_Kids, Sinais_e_Sintomas, Sinais_Vitais, localizacao_dos_traumas, Queimadura, Vitimia, DecisaoTransporteObjetosRecolhidos, Procedimentos_efetuados, SinaisSintomas, Materiais, AnamneseEmergenciaMedica, AnamneseGestacional, AvaliacaodacinematicaeObsImportantes, registrarocorrencia
 from rest_framework import serializers
 
 
@@ -107,4 +107,9 @@ class AnamneseGestacionalSerializer(serializers.ModelSerializer):
 class AvaliacaodacinematicaeObsImportantesSerializer(serializers.ModelSerializer):
     class Meta:
         model = AvaliacaodacinematicaeObsImportantes
+        fields = '__all__'
+
+class registrarocorrenciaSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = registrarocorrencia
         fields = '__all__'

@@ -2,9 +2,8 @@ from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 from rest_framework_simplejwt.views import TokenObtainPairView
 from django.shortcuts import render
 from rest_framework import viewsets
-from core.serializers import RegistroPacienteSerializer, RegistroUsuarioSerializer, OcorrenciaTipoSerializer, ProblemasEncontradosSerializer, AvaliacaoGlassGOWSerializer, AvaliacaoGlassGOW_KidsSerializer, Sinais_e_SintomasSerializer, Sinais_VitaisSerializer, localizacao_dos_traumasSerializer, QueimaduraSerializer, VitimiaSerializer, DecisaoTransporteObjetosRecolhidosSerializer, Procedimentos_efetuadosSerializer, SinaisSintomasSerializer, MateriaisSerializer, AnamneseEmergenciaMedicaSerializer, AnamneseGestacionalSerializer, AvaliacaodacinematicaeObsImportantesSerializer
-from core.models import RegistroPaciente, RegistroUsuario, OcorrenciaTipo, ProblemasEncontrados, AvaliacaoGlassGOW, AvaliacaoGlassGOW_Kids, Sinais_e_Sintomas, Sinais_Vitais, localizacao_dos_traumas, Queimadura, Vitimia, DecisaoTransporteObjetosRecolhidos, Procedimentos_efetuados, SinaisSintomas, Materiais, AnamneseEmergenciaMedica, AnamneseGestacional, AvaliacaodacinematicaeObsImportantes
-
+from core.serializers import RegistroPacienteSerializer, RegistroUsuarioSerializer, OcorrenciaTipoSerializer, ProblemasEncontradosSerializer, AvaliacaoGlassGOWSerializer, AvaliacaoGlassGOW_KidsSerializer, Sinais_e_SintomasSerializer, Sinais_VitaisSerializer, localizacao_dos_traumasSerializer, QueimaduraSerializer, VitimiaSerializer, DecisaoTransporteObjetosRecolhidosSerializer, Procedimentos_efetuadosSerializer, SinaisSintomasSerializer, MateriaisSerializer, AnamneseEmergenciaMedicaSerializer, AnamneseGestacionalSerializer, AvaliacaodacinematicaeObsImportantesSerializer, registrarocorrenciaSerializer
+from core.models import RegistroPaciente, RegistroUsuario, OcorrenciaTipo, ProblemasEncontrados, AvaliacaoGlassGOW, AvaliacaoGlassGOW_Kids, Sinais_e_Sintomas, Sinais_Vitais, localizacao_dos_traumas, Queimadura, Vitimia, DecisaoTransporteObjetosRecolhidos, Procedimentos_efetuados, SinaisSintomas, Materiais, AnamneseEmergenciaMedica, AnamneseGestacional, AvaliacaodacinematicaeObsImportantes, registrarocorrencia
 
 class RegistroUsuarioViewSet(viewsets.ModelViewSet):
     queryset = RegistroUsuario.objects.all()
@@ -94,6 +93,15 @@ class AnamneseGestacional(viewsets.ModelViewSet):
 class AvaliacaodacinematicaeObsImportantes(viewsets.ModelViewSet):
     queryset = AvaliacaodacinematicaeObsImportantes.objects.all()
     serializer_class = AvaliacaodacinematicaeObsImportantesSerializer
+
+class registrarocorrencias(viewsets.ModelViewSet):
+    queryset = registrarocorrencia.objects.all()
+    serializer_class = registrarocorrenciaSerializer
+    
+    def get_queryset(self):
+        id = self.request.query_params.get('id')
+        queryset = registrarocorrencia.objects.filter(id=id)
+        return queryset
 
 
 class MyTokenObtainPairSerializer(TokenObtainPairSerializer):

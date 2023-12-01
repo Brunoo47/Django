@@ -3,9 +3,8 @@ from rest_framework import routers
 from django.contrib import admin
 from rest_framework_simplejwt.views import (
     TokenRefreshView,
-    TokenObtainPairView
 )
-from core.views import RegistroPacienteViewSet, RegistroUsuarioViewSet, AnamneseGestacional, AnamneseEmergenciaMedica, OcorrenciaTipo, ProblemasEncontrados, AvaliacaoGlassGOW, AvaliacaoGlassGOW_Kids, Sinais_e_Sintomas, Sinais_Vitais, SinaisSintomas, localizacao_dos_traumas, Queimadura, Vitimia, DecisaoTransporteObjetosRecolhidos, Procedimentos_efetuados, Materiais, AvaliacaodacinematicaeObsImportantes
+from core.views import MyTokenObtainPairView, RegistroPacienteViewSet, registrarocorrencias, RegistroUsuarioViewSet, AnamneseGestacional, AnamneseEmergenciaMedica, OcorrenciaTipo, ProblemasEncontrados, AvaliacaoGlassGOW, AvaliacaoGlassGOW_Kids, Sinais_e_Sintomas, Sinais_Vitais, SinaisSintomas, localizacao_dos_traumas, Queimadura, Vitimia, DecisaoTransporteObjetosRecolhidos, Procedimentos_efetuados, Materiais, AvaliacaodacinematicaeObsImportantes
 
 from drf_spectacular.views import (
     SpectacularAPIView,
@@ -32,13 +31,13 @@ router.register(r'registroDecisaoTransporteObjetosRecolhidos',
                 DecisaoTransporteObjetosRecolhidos)
 router.register(r'registroProcedimentos_efetuados', Procedimentos_efetuados)
 router.register(r'registroMateriais', Materiais)
-router.register(r'registroAvaliacaodacinematicaeObsImportantes',
-                AvaliacaodacinematicaeObsImportantes)
+router.register(r'registroAvaliacaodacinematicaeObsImportantes', AvaliacaodacinematicaeObsImportantes)
+router.register(r'registroOcorrencias', registrarocorrencias)
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path("token/", TokenObtainPairView.as_view(), name="token_obtain_pair"),
+    path("token/", MyTokenObtainPairView.as_view(), name="token_obtain_pair"),
     path('token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
     path("api/schema/", SpectacularAPIView.as_view(), name="schema"),
     path("api/swagger/", SpectacularSwaggerView.as_view(url_name="schema"),
