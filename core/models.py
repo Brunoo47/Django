@@ -28,7 +28,8 @@ class RegistroUsuario(models.Model):
 
 
 class OcorrenciaTipo(models.Model):
-    registroId = models.ForeignKey(RegistroPaciente, null=True, on_delete=models.CASCADE)
+    registroId = models.ForeignKey(
+        RegistroPaciente, null=True, on_delete=models.CASCADE)
     deslizamento_desmoronamento = models.BooleanField(default=False)
     desabamento = models.BooleanField(default=False)
     queda_altura = models.BooleanField(default=False)
@@ -51,7 +52,8 @@ class OcorrenciaTipo(models.Model):
 
 
 class ProblemasEncontrados(models.Model):
-    registroId = models.ForeignKey(RegistroPaciente, null=True, on_delete=models.CASCADE)
+    registroId = models.ForeignKey(
+        RegistroPaciente, null=True, on_delete=models.CASCADE)
     psiquiatrico = models.BooleanField(default=False)
     respiratorio = models.BooleanField(default=False)
     diabeticos = models.BooleanField(default=False)
@@ -60,7 +62,8 @@ class ProblemasEncontrados(models.Model):
 
 
 class AvaliacaoGlassGOW(models.Model):
-    registroId = models.ForeignKey(RegistroPaciente, on_delete=models.CASCADE)
+    registroId = models.ForeignKey(
+        RegistroPaciente, null=True, on_delete=models.CASCADE)
     nenhuma = models.BooleanField(default=False)
     espontanea = models.BooleanField(default=False)
     comando_verbal = models.BooleanField(default=False)
@@ -76,7 +79,8 @@ class AvaliacaoGlassGOW(models.Model):
 
 
 class AvaliacaoGlassGOW_Kids(models.Model):
-    registroId = models.ForeignKey(RegistroPaciente, on_delete=models.CASCADE)
+    registroId = models.ForeignKey(
+        RegistroPaciente, null=True, on_delete=models.CASCADE)
     nenhuma = models.BooleanField(default=False)
     espontanea = models.BooleanField(default=False)
     comando_verbal = models.BooleanField(default=False)
@@ -94,7 +98,8 @@ class AvaliacaoGlassGOW_Kids(models.Model):
 
 
 class Sinais_e_Sintomas(models.Model):
-    registroId = models.ForeignKey(RegistroPaciente, on_delete=models.CASCADE)
+    registroId = models.ForeignKey(
+        RegistroPaciente, null=True, on_delete=models.CASCADE)
     abdomen_sensivel_rigido = models.BooleanField(default=False)
     afundamento_cranio = models.BooleanField(default=False)
     agitacao = models.BooleanField(default=False)
@@ -137,7 +142,8 @@ class Sinais_e_Sintomas(models.Model):
 
 
 class Sinais_Vitais(models.Model):
-    registroId = models.ForeignKey(RegistroPaciente, on_delete=models.CASCADE)
+    registroId = models.ForeignKey(
+        RegistroPaciente, null=True, on_delete=models.CASCADE)
     pressao_arterial1 = models.TextField()
     pressao_arterial2 = models.TextField()
     pulso = models.CharField(max_length=100)
@@ -152,7 +158,8 @@ class Sinais_Vitais(models.Model):
 
 
 class localizacao_dos_traumas(models.Model):
-    registroId = models.ForeignKey(RegistroPaciente, on_delete=models.CASCADE)
+    registroId = models.ForeignKey(
+        RegistroPaciente, null=True, on_delete=models.CASCADE)
     local = models.CharField(max_length=100)
     lado = models.CharField(max_length=100)
     face = models.CharField(max_length=100)
@@ -160,14 +167,16 @@ class localizacao_dos_traumas(models.Model):
 
 
 class Queimadura(models.Model):
-    registroId = models.ForeignKey(RegistroPaciente, on_delete=models.CASCADE)
+    registroId = models.ForeignKey(
+        RegistroPaciente, null=True, on_delete=models.CASCADE)
     tipo = models.CharField(max_length=100)
     local = models.CharField(max_length=100)
     grau = models.CharField(max_length=100)
 
 
 class Vitimia(models.Model):
-    registroId = models.ForeignKey(RegistroPaciente, on_delete=models.CASCADE)
+    registroId = models.ForeignKey(
+        RegistroPaciente, null=True, on_delete=models.CASCADE)
     sentada = models.BooleanField(default=False)
     semiDeitada = models.BooleanField(default=False)
     ciclista = models.BooleanField(default=False)
@@ -183,7 +192,8 @@ class Vitimia(models.Model):
 
 
 class DecisaoTransporteObjetosRecolhidos(models.Model):
-    registroId = models.ForeignKey(RegistroPaciente, on_delete=models.CASCADE)
+    registroId = models.ForeignKey(
+        RegistroPaciente, null=True, on_delete=models.CASCADE)
     critico = models.BooleanField(default=False)
     Potencialmente_instavel = models.BooleanField(default=False)
     instavel = models.BooleanField(default=False)
@@ -192,7 +202,8 @@ class DecisaoTransporteObjetosRecolhidos(models.Model):
 
 
 class Procedimentos_efetuados(models.Model):
-    registroId = models.ForeignKey(RegistroPaciente, on_delete=models.CASCADE)
+    registroId = models.ForeignKey(
+        RegistroPaciente, null=True, on_delete=models.CASCADE)
     procedimento_efetuado = models.TextField()
     aspiracao = models.BooleanField(default=False)
     avaliacao_digital = models.BooleanField(default=False)
@@ -225,7 +236,8 @@ class Procedimentos_efetuados(models.Model):
 
 
 class SinaisSintomas(models.Model):
-    registroId = models.ForeignKey(RegistroPaciente, on_delete=models.CASCADE)
+    registroId = models.ForeignKey(
+        RegistroPaciente, null=True, on_delete=models.CASCADE)
     imobilizacoes = models.CharField(max_length=100)
     maca_sobre_rodas = models.BooleanField(default=False)
     maca_rigida = models.BooleanField(default=False)
@@ -237,7 +249,8 @@ class SinaisSintomas(models.Model):
 
 
 class Materiais(models.Model):
-    registroId = models.ForeignKey(RegistroPaciente, on_delete=models.CASCADE)
+    registroId = models.ForeignKey(
+        RegistroPaciente, null=True, on_delete=models.CASCADE)
     ataduras = models.CharField(max_length=100)
     cateter_tp_oculos = models.BooleanField(default=False)
     kits = models.CharField(max_length=100)
@@ -257,7 +270,8 @@ class Materiais(models.Model):
 
 
 class AnamneseEmergenciaMedica(models.Model):
-    registroId = models.ForeignKey(RegistroPaciente, on_delete=models.CASCADE)
+    registroId = models.ForeignKey(
+        RegistroPaciente, null=True, on_delete=models.CASCADE)
     digite = models.TextField()
     aconteceu_outras_vezes = models.BooleanField(default=False)
     quanto_tempo_aconteceu = models.TextField()
@@ -271,7 +285,8 @@ class AnamneseEmergenciaMedica(models.Model):
 
 
 class AnamneseGestacional(models.Model):
-    registroId = models.ForeignKey(RegistroPaciente, on_delete=models.CASCADE)
+    registroId = models.ForeignKey(
+        RegistroPaciente, null=True, on_delete=models.CASCADE)
     periodo_da_gestacao = models.TextField()
     fez_pre_natal: models.BooleanField(default=False)
     nome_do_medico = models.TextField()
@@ -290,7 +305,8 @@ class AnamneseGestacional(models.Model):
 
 
 class AvaliacaodacinematicaeObsImportantes(models.Model):
-    registroId = models.ForeignKey(RegistroPaciente, on_delete=models.CASCADE)
+    registroId = models.ForeignKey(
+        RegistroPaciente, null=True, on_delete=models.CASCADE)
     disturbio_de_comportamento = models.BooleanField(default=False)
     encontrado_capacete = models.BooleanField(default=False)
     para_brisas_avariado = models.BooleanField(default=False)
@@ -299,8 +315,10 @@ class AvaliacaodacinematicaeObsImportantes(models.Model):
     volante_torcido = models.BooleanField(default=False)
     obs = models.TextField()
 
+
 class registrarocorrencia(models.Model):
-    registroId = models.ForeignKey(RegistroPaciente, null=True, on_delete=models.CASCADE)
+    registroId = models.ForeignKey(
+        RegistroPaciente, null=True, on_delete=models.CASCADE)
     nome = models.CharField(max_length=100)
     idade = models.CharField(max_length=100)
     cpf = models.CharField(max_length=100)
@@ -313,5 +331,7 @@ class registrarocorrencia(models.Model):
     s3 = models.CharField(max_length=100)
     demandante = models.CharField(max_length=100)
     equipe = models.CharField(max_length=100)
-    registroOcorrenciaTipo = models.ForeignKey(OcorrenciaTipo, null=True, on_delete=models.CASCADE)
-    registroProblemasEncontrados = models.ForeignKey(ProblemasEncontrados, null=True, on_delete=models.CASCADE)
+    registroOcorrenciaTipo = models.ForeignKey(
+        OcorrenciaTipo, null=True, on_delete=models.CASCADE)
+    registroProblemasEncontrados = models.ForeignKey(
+        ProblemasEncontrados, null=True, on_delete=models.CASCADE)
